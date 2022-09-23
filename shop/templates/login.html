@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block style %}
+<!-- uncomment if required -->
+<!-- <link rel="stylesheet" href="static/styles/login.css"> -->
+<link rel="stylesheet" href="static/styles/signup.css">
+{% endblock %}
+{% block nav %}
+<form class="form-inline my-2 my-lg-0">
+    <button class="signup-btn btn  my-2 my-sm-0" type="submit">Creat account</button>
+</form>
+{% endblock %}
+{% block title %}
+<title>Login</title>
+{% endblock %}
+{% block content %}
+<form class="signup-form">
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Email</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="aditya@gmail.com">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Password</label>
+        <input type="password" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary btn-outline-dark">Login</button>
+    </div>
+</form>
+{% endblock %}

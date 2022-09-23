@@ -1,0 +1,54 @@
+.items-container {
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100vw;
+}
+
+.card {
+    -webkit-box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75) !important;
+    -moz-box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75) !important;
+}
+
+.card-img-top {
+    height: 350px !important;
+}
+
+.detail-btn {
+    display: block;
+    border-radius: 50px;
+}
+
+.col * {
+    margin: auto;
+    display: block;
+}
+
+.super-row {
+    margin-top: 70px;
+}
+
+.buy {
+    display: flex;
+}
+
+.buy>select {
+    margin: 0 10px;
+    border-radius: 50px;
+}
+ 
+.col{
+    margin: 20px auto !important;
+}
+
+.btn{
+    background-color: blue;
+    border: 0px solid transparent;
+}
+
+
+/* body {
+    font-family: 'Open Sans', sans-serif !important;
+    background-image: url("/static/images/background2.jpg") !important;
+} */

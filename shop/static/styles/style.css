@@ -1,0 +1,53 @@
+body {
+    position: relative;
+}
+
+.base-nav {
+    width: 80vw;
+    border-radius: 50px;
+    background-color: white !important;
+    -webkit-box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75);
+    box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75);
+    margin: 10px auto;
+    position: fixed;
+    left: 10%;
+    right: 10%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo {
+    padding: 10px 20px;
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: 800;
+}
+
+.navbar-toggler {
+    border: 0px solid transparent !important;
+    /* outline: none !important; */
+}
+
+.navbar-toggler button:focus {
+    outline: none !important;
+}
+
+.signup-btn {
+    font-weight: 800;
+    font-size: large;
+    border-radius: 50px;
+    border: 0px solid transparent;
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+}
+
+.nav-ul {
+    margin: auto;
+    color: white;
+    padding: 10px 20px;
+}
+
+.nav-ul>li {
+    font-size: larger;
+}
