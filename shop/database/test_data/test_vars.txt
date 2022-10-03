@@ -1,0 +1,11 @@
+# user1 = Users(username = 'siddhant', email = 'otasiddhant@gmail.com', password_hash = 'random1', address = 'thikadarpada')
+# user2 = Users(username = 'soumendra', email = 'soumendra@gmail.com', password_hash = 'random2', address = 'gadadharpada')
+# user3 = Users(username = 'sahil', email = 'sahil@gmail.com', password_hash = 'random3', address = 'bongopada')
+# user4 = Users(username = 'mongodb', email = 'mongodb@gmail.com', password_hash = 'random4', address = 'mongopada')
+# user5 = Users(username = 'yes', email = 'yes@gmail.com', password_hash = 'random5', address = 'sahilnagar')
+
+# product1 = Products(name = 'laptop', desc = 'desc1', price = 5)
+# product2 = Products(name = 'mouse', desc = 'desc2', price = 10)
+# product3 = Products(name = 'keyboard', desc = 'desc3', price = 15)
+# product4 = Products(name = 'led', desc = 'desc4', price = 50)
+# product5 = Products(name = 'desktop', desc = 'desc5', price = 25)

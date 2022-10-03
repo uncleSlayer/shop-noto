@@ -1,11 +1,12 @@
 .signup-form {
-    color: white;
+    color: black;
     margin-top: 120px !important;
     width: 60vw;
     margin: auto;
 }
 
 .signup-form input {
+    color: black !important;
     font-size: large !important;
     font-weight: 800 !important;
     border-radius: 50px;
@@ -19,7 +20,11 @@
     margin: auto;
     background-color: blue !important;
     border: 0px solid transparent;
-    color: white;
     padding: 10px 15px;
     font-size: large;
+}
+
+.form-group > button {
+    color: white;
+    font-weight: 800;
 }

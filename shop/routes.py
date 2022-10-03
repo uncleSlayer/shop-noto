@@ -6,13 +6,13 @@ from flask import render_template
 def shop():
     return render_template("shop.html")
 
-@app.route("/signup")
-def signup():
+@app.route("/signup", methods = ['GET'])
+def signup_form():
     return render_template("signup.html")
 
 
 @app.route("/login")
-def login():
+def login_form():
     return render_template("login.html")
 
 @app.route("/cart")

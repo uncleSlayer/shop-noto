@@ -31,6 +31,8 @@
 
 .buy {
     display: flex;
+    margin-top: 5%;
+    gap: 3%;
 }
 
 .buy>select {
@@ -47,7 +49,9 @@
     border: 0px solid transparent;
 }
 
-
+.buy > select{
+    margin: 0;
+}
 /* body {
     font-family: 'Open Sans', sans-serif !important;
     background-image: url("/static/images/background2.jpg") !important;

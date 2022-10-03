@@ -11,25 +11,28 @@
 <title>Sign up</title>
 {% endblock %}
 {% block content %}
-<form class="signup-form">
+<form class="signup-form" method="post">
     <div class="form-group">
         <label for="exampleFormControlInput1">Full name</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Aditya Saini">
+        <input type="text" class="form-control namejs" id="exampleFormControlInput1" placeholder="Aditya Saini" name="name">
     </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="aditya@gmail.com">
+        <input type="email" class="form-control emailjs" id="exampleFormControlInput1" placeholder="aditya@gmail.com" name="email">
     </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Password</label>
-        <input type="password" class="form-control" id="exampleFormControlInput1">
+        <input type="password" class="form-control passwordjs" id="exampleFormControlInput1" name="password">
     </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Password</label>
-        <input type="password" class="form-control" id="exampleFormControlInput1">
+        <input type="password" class="form-control reppasswordjs" id="exampleFormControlInput1">
     </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary btn-outline-dark">Sign up</button>
+        <button type="button" class="btn btn-primary btn-outline-dark submitjs">Sign up</button>
     </div>
 </form>
+{% endblock %}
+{% block script %}
+<script src="static/scripts/signup.js"></script>
 {% endblock %}
