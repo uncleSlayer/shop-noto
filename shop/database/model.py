@@ -1,7 +1,8 @@
+from flask_login import UserMixin
 from shop import db
 
 
-class Users(db.Model):
+class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(50), unique = True)
     email = db.Column(db.String(50), unique = True)
@@ -13,6 +14,7 @@ class Users(db.Model):
 class Products(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(50), unique = True)
+    url = db.Column(db.String(300), unique = True)
     desc = db.Column(db.String(350))
     price = db.Column(db.Integer)
     cart = db.relationship('Cart', backref = 'cart_product')

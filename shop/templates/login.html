@@ -13,17 +13,17 @@
 <title>Login</title>
 {% endblock %}
 {% block content %}
-<form class="signup-form" method="post">
+<form class="signup-form" method="post" action="/login">
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Email</label>
-        <input type="email" class="form-control emailjs" id="exampleFormControlInput1" placeholder="aditya@gmail.com">
+        <input type="email" class="form-control emailjs" id="exampleFormControlInput1" placeholder="aditya@gmail.com" name="email">
     </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Password</label>
-        <input type="password" class="form-control passjs" id="exampleFormControlInput1">
+        <input type="password" class="form-control passjs" id="exampleFormControlInput1" name="password">
     </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary btn-outline-dark submitjs">Login</button>
+        <button type="submit" class="btn btn-primary btn-outline-dark submitjs">Login</button>
     </div>
 </form>
 {% endblock %}
