@@ -28,18 +28,28 @@
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="static/images/{{ item.url }}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{ item.name }}</h5>
+                        <h5 class="card-title cart-name  " id="{{item.name}}">{{ item.name }}</h5>
                         <p class="card-text">{{ item.desc }}</p>
                         <div class="price"> Eth. {{ item.price }}</div>
                         <div class="buy">
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <form action="" class="buy-form">
+                                <select name="add-to-cart" class="form-control cart-value {{item.name}}" id="exampleFormControlSelect1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <a href="#" class="btn btn-primary detail-btn cart-adder" data-name="{{ item.name }}">Add to cart</a>
+                            </form>
+                            <!-- <select class="form-control" id="exampleFormControlSelect1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
-                            <a href="#" class="btn btn-primary detail-btn">Add to cart</a>
+                            <a href="#" class="btn btn-primary detail-btn">Add to cart</a> -->
                         </div>
                     </div>
                 </div>
@@ -49,4 +59,8 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block script %}
+<script src="static/scripts/addToCart.js"></script>
 {% endblock %}

@@ -6,7 +6,7 @@
 {% endblock %}
 {% block nav %}
 <form class="form-inline my-2 my-lg-0">
-    <button class="signup-btn btn  my-2 my-sm-0" type="submit">Profile</button>
+  <button class="signup-btn btn  my-2 my-sm-0" type="submit">Profile</button>
 </form>
 {% endblock %}
 {% block title %}
@@ -14,15 +14,20 @@
 {% endblock %}
 {% block content %}
 <h1 class="cart-header">Your cart items</h1>
+
 <div class="container">
-    <div class="item-image">
-        
-    </div>
-    <div class="item-quantity">
-
-    </div>
-    <div class="price">
-
-    </div>
+  {% for item in product_det %}
+  <div class="item-cards">
+    <div class="item-name">{{ item['product_name'] }}</div>
+    <div class="quantity">quantity:&nbsp; {{ item['product_qty'] }}</div>
   </div>
+  {% endfor %}
+</div>
+
 {% endblock %}
+
+{% block script %}
+<script src="static/scripts/cart.js"></script>
+{% endblock %}
+
+kmt8wc9j

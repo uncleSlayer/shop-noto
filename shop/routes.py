@@ -1,9 +1,9 @@
+from crypt import methods
+from itertools import product
 from flask_login import current_user, login_required, login_user, logout_user
 from shop import app, bcrypt_app
 from flask import jsonify, render_template, request, session, url_for, redirect
-
 from shop.database.model import Products
-
 
 # index, shop
 @app.route("/")
@@ -28,11 +28,14 @@ def signup_form():
             password = request.form['password']
             re_password = request.form['repassword']
 
+            print(email)
+
             if password == re_password:
 
-                check_user = Users.query.filter(email == email).first()
+                check_user = Users.query.filter_by(email = email).first()
 
                 if check_user:
+                    print(check_user)
                     print('user with this email address already exist')
                     return render_template('signup.html')
                 else:
@@ -61,13 +64,12 @@ def signup_form():
 def login():
     from shop.database.model import Users
     from shop.database.model import Products
-    all_products = Products.query.all() 
 
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
 
-        user = Users.query.filter(email == email).first()
+        user = Users.query.filter_by(email = email).first()
 
         print(user)
 
@@ -88,7 +90,29 @@ def login():
 @app.route("/cart")
 @login_required
 def cart():
-    return render_template("cart.html")
+    from shop.database.model import Users, Products, Cart, Cart_items
+
+    products = Cart.query.filter(Cart.user_id == current_user.id).all()
+
+    product_data_front_end = []
+
+    for item in products:
+        product_qty = Cart_items.query.filter(Cart_items.cart_id == item.id).first()
+
+        product_name_obj = Products.query.filter(Products.id == item.product_id).first()
+        product_name = product_name_obj.name
+
+        product_object = {
+            'product_name': product_name,
+            'product_qty': product_qty.quantity
+        }
+
+        product_data_front_end.append(product_object)
+
+    print(product_data_front_end)
+
+
+    return render_template("cart.html", product_det = product_data_front_end)
 
 # logout
 @app.route('/logout', methods=['GET', 'POST'])
@@ -96,3 +120,32 @@ def cart():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+
+# add to cart api
+@app.route('/cart-add', methods = ['GET', 'POST'])
+def cart_adder():
+    from shop import db
+    from shop.database.model import Products, Cart, Cart_items
+
+    req = request.get_json()
+    cart_name = req['cart_name']
+    cart_value = req['cart_value']
+
+    cart = Cart(user_id = current_user.id)
+    user = current_user
+    product = Products.query.filter_by(name = cart_name).first()
+
+    user.cart.append(cart)
+    product.cart.append(cart)
+
+    cart_items = Cart_items(quantity = cart_value)
+    cart.cart_items.append(cart_items)
+
+    db.session.add_all([cart, cart_items])
+    db.session.commit()
+
+    return jsonify({
+        'message': 'worked perfectly',
+        'data sent': req
+    })

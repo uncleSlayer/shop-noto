@@ -1,4 +1,18 @@
-.cart-header{
+.cart-header {
     margin-top: 100px;
     text-align: center;
+}
+
+.container {
+    width: 100%;
+}
+
+.item-cards {
+    -webkit-box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75);
+    box-shadow: 11px 3px 46px -18px rgba(0, 0, 0, 0.75);
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 30px !important;
+    margin: 20px 0;
 }
