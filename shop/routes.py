@@ -3,7 +3,7 @@ from itertools import product
 from flask_login import current_user, login_required, login_user, logout_user
 from shop import app, bcrypt_app
 from flask import jsonify, render_template, request, session, url_for, redirect
-from shop.database.model import Products
+from shop.database.model import Cart_items, Products
 
 # index, shop
 @app.route("/")
@@ -132,20 +132,51 @@ def cart_adder():
     cart_name = req['cart_name']
     cart_value = req['cart_value']
 
-    cart = Cart(user_id = current_user.id)
-    user = current_user
     product = Products.query.filter_by(name = cart_name).first()
 
-    user.cart.append(cart)
-    product.cart.append(cart)
+    print(product.name)
 
-    cart_items = Cart_items(quantity = cart_value)
-    cart.cart_items.append(cart_items)
+    cart = Cart.query.filter(Cart.user_id == current_user.id, Cart.product_id == product.id).first()
+    cart = Cart.query.filter(Cart.user_id == current_user.id, Cart.product_id == product.id).first()
 
-    db.session.add_all([cart, cart_items])
-    db.session.commit()
+    print(cart)
+
+    if cart == None:
+        new_cart = Cart(user_id = current_user.id, product_id = product.id)
+
+        db.session.add(new_cart)
+        db.session.commit()
+
+        new_cart_item = Cart_items(quantity = cart_value)
+
+        new_cart.cart_items.append(new_cart_item)
+
+        db.session.add(new_cart_item)
+
+        db.session.commit()
+
+    else:
+
+        existing_cart_item = Cart_items.query.filter(Cart_items.cart_id == cart.id).first()
+
+    
+        qty = existing_cart_item.quantity
+
+        existing_cart_item.quantity = int(qty) + int(cart_value)
+
+        db.session.commit()
 
     return jsonify({
         'message': 'worked perfectly',
         'data sent': req
+    })
+
+    # create order
+@app.route('/make-order', methods = ['post'])
+def create_order():
+
+    # cart_items = Cart_items.query.filter(Cart_items.)
+
+    return jsonify({
+        'message': 'order created successfully'
     })

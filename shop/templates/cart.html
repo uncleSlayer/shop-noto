@@ -22,6 +22,10 @@
     <div class="quantity">quantity:&nbsp; {{ item['product_qty'] }}</div>
   </div>
   {% endfor %}
+
+  <form action="/make-order" method="post">
+    <input type="submit" value="Order now" class="order-btn">
+  </form>
 </div>
 
 {% endblock %}
