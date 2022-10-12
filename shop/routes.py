@@ -175,8 +175,28 @@ def cart_adder():
 @app.route('/make-order', methods = ['post'])
 def create_order():
 
-    # cart_items = Cart_items.query.filter(Cart_items.)
+    from shop.database.model import Cart, Cart_items, Order, Order_items, Products
+    from shop import db 
+
+    cart_items = Cart_items.query.all()
+    print(cart_items)
+
+    if cart_items:
+        order = Order()
+
+        db.session.add(order)
+        db.session.commit()
+
+        current_user.order.append(order)
+
+        for item in cart_items:
+            product_id_in_cart = Cart.query.filter(Cart.id == item.cart_id).first().product_id
+            order_items = Order_items(order_id = order.id, quantity = item.quantity)
+            product = Products.query.filter(Products.id == product_id_in_cart).first()
+            product.order_items.append(order_items)
+            db.session.add(order_items)
+            db.session.commit()
 
     return jsonify({
-        'message': 'order created successfully'
+        'message': 'order created successfully. we will ship it to your address soon'
     })
